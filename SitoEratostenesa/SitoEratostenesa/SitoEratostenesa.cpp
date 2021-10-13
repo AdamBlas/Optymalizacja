@@ -55,6 +55,8 @@ int main()
         }
     }
 
+    cout << "Czas: " << std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now() - start_time).count() << " ms" << endl;
+
     // Calculate sum, start from -1 to subtract 1, as it would be counted as prime number
     long long sum = -1;
     for (int i = 0; i < size; i++)
@@ -69,15 +71,17 @@ int main()
         }
     }
 
-    std::chrono::duration<double> processing_time = std::chrono::system_clock::now() - start_time;
-    cout << "Time: " << std::chrono::duration_cast<std::chrono::milliseconds>(processing_time).count() << endl;
-    cout << "Sum: " << sum << endl;
+    cout << "Suma: " << sum << endl;
 
     long long correctSum = 139601928199359;
     if (sum != correctSum)
     {
         cout << "ERROR" << endl;
         cout << "DIFF: " << sum - correctSum << endl;
+    }
+    else
+    {
+        cout << "Suma prawidlowa" << endl;
     }
 
     return 0;
